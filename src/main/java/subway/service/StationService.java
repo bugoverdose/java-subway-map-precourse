@@ -21,9 +21,7 @@ public class StationService {
             if (userChoice.equals("3")) {
                 //TODO
             }
-            if (userChoice.equals("B")) {
-                //TODO
-            }
+            if (userChoice.equals("B")) break;
         }
     }
 }
