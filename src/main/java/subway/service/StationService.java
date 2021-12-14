@@ -21,7 +21,7 @@ public class StationService {
                 isSuccessful = deleteStationSuccessful();
             }
             if (userChoice.equals("3")) {
-                //TODO
+                isSuccessful = readStationSuccessful();
             }
             if (userChoice.equals("B")) break;
         }
@@ -49,5 +49,10 @@ public class StationService {
             System.out.println(e.getMessage());
             return false;
         }
+    }
+
+    private boolean readStationSuccessful() {
+        printReadStationOutput(StationRepository.stations());
+        return true;
     }
 }
