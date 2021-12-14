@@ -18,7 +18,7 @@ public class StationService {
                 isSuccessful = addNewStationSuccessful();
             }
             if (userChoice.equals("2")) {
-                //TODO
+                isSuccessful = deleteStationSuccessful();
             }
             if (userChoice.equals("3")) {
                 //TODO
@@ -32,6 +32,18 @@ public class StationService {
             Station newStation = new Station(requestNewStationInput());
             StationRepository.addStation(newStation);
             printNewStationAddedOutput();
+            return true;
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+    }
+
+    private boolean deleteStationSuccessful() {
+        try {
+            String stationName = requestDeleteStationInput();
+            StationRepository.deleteStation(stationName);
+            printStationDeletedOutput();
             return true;
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());

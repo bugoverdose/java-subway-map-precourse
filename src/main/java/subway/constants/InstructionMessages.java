@@ -18,4 +18,5 @@ public class InstructionMessages {
             "B. 돌아가기";
 
     public static String REQUEST_NEW_STATION_INPUT = "## 등록할 역 이름을 입력하세요.\n";
+    public static String REQUEST_DELETE_STATION_INPUT = "## 삭제할 역 이름을 입력하세요.\n";
 }

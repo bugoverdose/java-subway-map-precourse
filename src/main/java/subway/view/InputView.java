@@ -22,4 +22,9 @@ public class InputView {
         System.out.println(REQUEST_NEW_STATION_INPUT);
         return requestUserInput();
     }
+
+    public static String requestDeleteStationInput() {
+        System.out.println(REQUEST_DELETE_STATION_INPUT);
+        return requestUserInput();
+    }
 }
