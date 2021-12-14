@@ -4,11 +4,11 @@ import static subway.constants.OutputMessages.*;
 
 public class OutputView {
 
-    public static void printNewStationAddedOutput() {
-        System.out.println(NEW_STATION_ADDED_OUTPUT);
+    public static void printPostStationOutput() {
+        System.out.println(POST_STATION_SUCCESSFUL_OUTPUT);
     }
 
-    public static void printStationDeletedOutput() {
-        System.out.println(STATION_DELETED_OUTPUT);
+    public static void printDeleteStationOutput() {
+        System.out.println(DELETE_STATION_SUCCESSFUL_OUTPUT);
     }
 }

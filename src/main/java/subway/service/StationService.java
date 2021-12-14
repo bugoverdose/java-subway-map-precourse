@@ -15,7 +15,7 @@ public class StationService {
             String userChoice = requestActionInput();
 
             if (userChoice.equals("1")) {
-                isSuccessful = addNewStationSuccessful();
+                isSuccessful = postStationSuccessful();
             }
             if (userChoice.equals("2")) {
                 isSuccessful = deleteStationSuccessful();
@@ -27,11 +27,11 @@ public class StationService {
         }
     }
 
-    private boolean addNewStationSuccessful() {
+    private boolean postStationSuccessful() {
         try {
             Station newStation = new Station(requestNewStationInput());
             StationRepository.addStation(newStation);
-            printNewStationAddedOutput();
+            printPostStationOutput();
             return true;
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
@@ -43,7 +43,7 @@ public class StationService {
         try {
             String stationName = requestDeleteStationInput();
             StationRepository.deleteStation(stationName);
-            printStationDeletedOutput();
+            printDeleteStationOutput();
             return true;
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
