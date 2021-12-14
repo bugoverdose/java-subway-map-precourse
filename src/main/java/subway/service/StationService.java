@@ -1,7 +1,8 @@
 package subway.service;
 
-import static subway.constants.InstructionMessages.REQUEST_STATION_MENU_ACTION;
+import static subway.constants.InstructionMessages.*;
 import static subway.view.InputView.*;
+import static subway.view.OutputView.*;
 
 import subway.domain.Station;
 import subway.domain.StationRepository;
@@ -30,6 +31,7 @@ public class StationService {
         try {
             Station newStation = new Station(requestNewStationInput());
             StationRepository.addStation(newStation);
+            printNewStationAddedOutput();
             return true;
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
