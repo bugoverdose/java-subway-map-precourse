@@ -16,4 +16,16 @@ public class InputView {
         scanner.close();
         return userChoice;
     }
+
+    public static String requestStationMenuAction() {
+        final Scanner scanner = new Scanner(System.in);
+        System.out.println("## 역 관리 화면\n" +
+                "1. 역 등록\n" +
+                "2. 역 삭제\n" +
+                "3. 역 조회\n" +
+                "B. 돌아가기");
+        String userChoice = scanner.next();
+        scanner.close();
+        return userChoice;
+    }
 }

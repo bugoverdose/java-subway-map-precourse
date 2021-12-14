@@ -1,10 +1,12 @@
 package subway.controller;
 
+import subway.service.StationService;
+
 import static subway.view.InputView.*;
 
-import java.util.Scanner;
-
 public class SubwayController {
+
+    private final StationService stationService = new StationService();
 
     public SubwayController() {}
 
@@ -13,7 +15,7 @@ public class SubwayController {
             String userChoice = requestMainMenuAction();
             if (userChoice.equals("Q")) break;
             if (userChoice.equals("1")) {
-                //TODO
+                stationService.run();
             }
             if (userChoice.equals("2")) {
                 //TODO
