@@ -17,6 +17,18 @@ public class SubwayController {
                     "Q. 종료");
             String userChoice = scanner.next();
             if (userChoice.equals("Q")) break;
+            if (userChoice.equals("1")) {
+                //TODO
+            }
+            if (userChoice.equals("2")) {
+                //TODO
+            }
+            if (userChoice.equals("3")) {
+                //TODO
+            }
+            if (userChoice.equals("4")) {
+                //TODO
+            }
         }
     }
 }
