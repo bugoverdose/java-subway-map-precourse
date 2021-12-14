@@ -1,8 +1,9 @@
 package subway.controller;
 
-import subway.service.StationService;
-
+import static subway.constants.InstructionMessages.REQUEST_MAIN_ACTION;
 import static subway.view.InputView.*;
+
+import subway.service.StationService;
 
 public class SubwayController {
 
@@ -11,8 +12,9 @@ public class SubwayController {
     public SubwayController() {}
 
     public void run() {
+        System.out.println(REQUEST_MAIN_ACTION);
         while (true) {
-            String userChoice = requestMainMenuAction();
+            String userChoice = requestUserInput();
             if (userChoice.equals("Q")) break;
             if (userChoice.equals("1")) {
                 stationService.run();
