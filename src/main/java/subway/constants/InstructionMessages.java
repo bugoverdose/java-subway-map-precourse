@@ -2,7 +2,7 @@ package subway.constants;
 
 public class InstructionMessages {
 
-    public static String REQUEST_USER_INPUT = "## 원하는 기능을 선택하세요.\n";
+    public static String REQUEST_ACTION_INPUT = "## 원하는 기능을 선택하세요.\n";
 
     public static String REQUEST_MAIN_ACTION = "## 메인 화면\n" +
             "1. 역 관리\n" +
@@ -16,4 +16,6 @@ public class InstructionMessages {
             "2. 역 삭제\n" +
             "3. 역 조회\n" +
             "B. 돌아가기";
+
+    public static String REQUEST_NEW_STATION_INPUT = "## 등록할 역 이름을 입력하세요.\n";
 }

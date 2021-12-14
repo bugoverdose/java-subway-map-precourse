@@ -3,17 +3,18 @@ package subway.service;
 import static subway.constants.InstructionMessages.REQUEST_STATION_MENU_ACTION;
 import static subway.view.InputView.*;
 
+import subway.domain.Station;
 import subway.domain.StationRepository;
 
 public class StationService {
-    private static final StationRepository stationRepository = new StationRepository();
-
     public void run() {
         System.out.println(REQUEST_STATION_MENU_ACTION);
-        while (true) {
-            String userChoice = requestUserInput();
+        boolean isSuccessful = false;
+        while (!isSuccessful) {
+            String userChoice = requestActionInput();
+
             if (userChoice.equals("1")) {
-                //TODO
+                isSuccessful = addNewStationSuccessful();
             }
             if (userChoice.equals("2")) {
                 //TODO
@@ -22,6 +23,17 @@ public class StationService {
                 //TODO
             }
             if (userChoice.equals("B")) break;
+        }
+    }
+
+    private boolean addNewStationSuccessful() {
+        try {
+            Station newStation = new Station(requestNewStationInput());
+            StationRepository.addStation(newStation);
+            return true;
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            return false;
         }
     }
 }

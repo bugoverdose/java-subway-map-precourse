@@ -14,7 +14,7 @@ public class SubwayController {
     public void run() {
         System.out.println(REQUEST_MAIN_ACTION);
         while (true) {
-            String userChoice = requestUserInput();
+            String userChoice = requestActionInput();
             if (userChoice.equals("Q")) break;
             if (userChoice.equals("1")) {
                 stationService.run();
