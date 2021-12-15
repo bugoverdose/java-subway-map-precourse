@@ -14,4 +14,6 @@ public class ExceptionMessages {
     public static String NOT_INTEGER_EXCEPTION = ERROR + "노선 내 위치로 숫자를 입력해야 합니다.\n";
     public static String INVALID_RANGE_EXCEPTION = ERROR + "노선 내 위치로는 1부터 노선 맨 끝의 위치를 값으로 입력해야 합니다.\n";
     public static String NOT_A_SECTION_IN_THE_LINE_EXCEPTION = ERROR + "해당 노선의 구간으로 등록된 역이 아닙니다.\n";
+    public static String SECTION_LENGTH_EXCEPTION = ERROR + "노선의 구간은 2개 이하가 될 수 없습니다.\n";
+
 }

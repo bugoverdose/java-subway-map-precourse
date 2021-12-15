@@ -1,13 +1,14 @@
 package subway.utils;
 
+import static subway.constants.ExceptionMessages.NOT_A_SECTION_IN_THE_LINE_EXCEPTION;
+import static subway.constants.ExceptionMessages.SECTION_LENGTH_EXCEPTION;
+import static subway.utils.LineInputValidators.validateExistingLine;
+import static subway.utils.StationInputValidators.validateExistingStation;
+
 import subway.domain.Line;
 import subway.domain.LineRepository;
 import subway.domain.Station;
 import subway.domain.StationRepository;
-
-import static subway.constants.ExceptionMessages.NOT_A_SECTION_IN_THE_LINE_EXCEPTION;
-import static subway.utils.LineInputValidators.validateExistingLine;
-import static subway.utils.StationInputValidators.validateExistingStation;
 
 public class SectionInputValidators {
 
@@ -18,6 +19,8 @@ public class SectionInputValidators {
         Line line = LineRepository.findByName(lineName);
         Station station = StationRepository.findByName(stationName);
         validateIsSectionInLine(line, station);
+
+        validateSectionNumberOfLine(line);
     }
 
     private static void validateIsSectionInLine(Line line, Station station) {
@@ -25,5 +28,11 @@ public class SectionInputValidators {
             if (section == station) return;
         }
         throw new IllegalArgumentException(NOT_A_SECTION_IN_THE_LINE_EXCEPTION);
+    }
+
+    private static void validateSectionNumberOfLine(Line line) {
+        if (line.getSectionSize() <= 2) {
+            throw new IllegalArgumentException(SECTION_LENGTH_EXCEPTION);
+        }
     }
 }
