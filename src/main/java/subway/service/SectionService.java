@@ -33,6 +33,7 @@ public class SectionService {
             Station targetStation = new Station(requestTargetStationInput());
             int idx = Integer.parseInt(requestStationIdxInput());
             line.addSection(idx, targetStation);
+            targetStation.toggleIsSection();
             printPostSectionOutput();
             return true;
         } catch (IllegalArgumentException e) {

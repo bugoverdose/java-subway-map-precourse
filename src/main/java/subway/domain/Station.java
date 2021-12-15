@@ -2,6 +2,7 @@ package subway.domain;
 
 public class Station {
     private String name;
+    private boolean isSection = false;
 
     public Station(String name) {
         this.name = name;
@@ -11,5 +12,11 @@ public class Station {
         return name;
     }
 
-    // 추가 기능 구현
+    public boolean getIsSection() {
+        return isSection;
+    }
+
+    public void toggleIsSection() {
+        isSection = !isSection;
+    }
 }

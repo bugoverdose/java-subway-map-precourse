@@ -1,5 +1,6 @@
 package subway.service;
 
+import static subway.constants.ExceptionMessages.STATION_NAME_LENGTH_EXCEPTION;
 import static subway.constants.InstructionMessages.*;
 import static subway.utils.StationInputValidators.*;
 import static subway.view.InputView.*;
@@ -46,6 +47,7 @@ public class StationService {
     private boolean deleteStation() {
         try {
             String stationName = requestDeleteStationInput();
+            validateDeleteStation(stationName);
             StationRepository.deleteStation(stationName);
             printDeleteStationOutput();
             return true;

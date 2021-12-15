@@ -21,4 +21,14 @@ public class StationInputValidators {
             throw new IllegalArgumentException(STATION_NAME_LENGTH_EXCEPTION);
         }
     }
+
+    public static void validateDeleteStation (String stationName) {
+        validateExistingStation(stationName);
+    }
+
+    private static void validateExistingStation (String stationName) {
+        if (!checkExistsByName(stationName)){
+            throw new IllegalArgumentException(NOT_EXISTING_STATION_NAME_EXCEPTION);
+        }
+    }
 }
