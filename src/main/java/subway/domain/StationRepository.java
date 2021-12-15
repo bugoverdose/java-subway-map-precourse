@@ -22,6 +22,14 @@ public class StationRepository {
         throw new IllegalArgumentException();
     }
 
+    public static boolean checkExistsByName(String name) {
+        for (Station station : stations) {
+            if (!station.getName().equals(name)) continue;
+            return true;
+        }
+        return false;
+    }
+
     public static void addStation(Station station) {
         stations.add(station);
     }

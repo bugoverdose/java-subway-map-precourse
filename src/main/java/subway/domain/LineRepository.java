@@ -24,6 +24,14 @@ public class LineRepository {
         throw new IllegalArgumentException();
     }
 
+    public static boolean checkExistsByName(String name) {
+        for (Line line : lines) {
+            if (!line.getName().equals(name)) continue;
+            return true;
+        }
+        return false;
+    }
+
     public static void addLine(Line line) {
         lines.add(line);
     }

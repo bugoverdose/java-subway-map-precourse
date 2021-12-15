@@ -1,6 +1,7 @@
 package subway.service;
 
 import static subway.constants.InstructionMessages.*;
+import static subway.utils.StationInputValidators.*;
 import static subway.view.InputView.*;
 import static subway.view.OutputView.*;
 
@@ -30,7 +31,9 @@ public class StationService {
 
     private boolean postStation() {
         try {
-            Station newStation = new Station(requestNewStationInput());
+            String newStationName = requestNewStationInput();
+            validateUniqueStationName(newStationName);
+            Station newStation = new Station(newStationName);
             StationRepository.addStation(newStation);
             printPostStationOutput();
             return true;
