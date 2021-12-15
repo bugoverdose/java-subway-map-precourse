@@ -1,14 +1,14 @@
 package subway.service;
 
-import subway.domain.Line;
-import subway.domain.LineRepository;
-import subway.domain.Station;
-import subway.domain.StationRepository;
-
 import static subway.constants.InstructionMessages.*;
 import static subway.utils.InputRangeValidators.validateAndParseToInt;
 import static subway.view.InputView.*;
 import static subway.view.OutputView.*;
+
+import subway.domain.Line;
+import subway.domain.LineRepository;
+import subway.domain.Station;
+import subway.domain.StationRepository;
 
 public class SectionService {
 

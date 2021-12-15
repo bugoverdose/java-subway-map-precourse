@@ -1,6 +1,5 @@
 package subway.service;
 
-import static subway.constants.ExceptionMessages.STATION_NAME_LENGTH_EXCEPTION;
 import static subway.constants.InstructionMessages.*;
 import static subway.utils.StationInputValidators.*;
 import static subway.view.InputView.*;
