@@ -16,7 +16,7 @@ public class Station {
         return isSection;
     }
 
-    public void toggleIsSection() {
-        isSection = !isSection;
+    public void setIsSection(boolean isSection) {
+        this.isSection = isSection;
     }
 }

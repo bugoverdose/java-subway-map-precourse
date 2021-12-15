@@ -33,7 +33,7 @@ public class SectionService {
             Station targetStation = new Station(requestTargetStationInput());
             int idx = Integer.parseInt(requestStationIdxInput());
             line.addSection(idx, targetStation);
-            targetStation.toggleIsSection();
+            targetStation.setIsSection(true);
             printPostSectionOutput();
             return true;
         } catch (IllegalArgumentException e) {
@@ -47,6 +47,7 @@ public class SectionService {
             String lineName = requestDeleteSectionLineInput();
             String stationName = requestDeleteSectionStationInput();
             LineRepository.deleteSectionByLineNameAndStationName(lineName, stationName);
+            StationRepository.updateIsSection(StationRepository.findByName(stationName));
             printDeleteSectionOutput();
             return true;
         } catch (IllegalArgumentException e) {

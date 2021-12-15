@@ -47,4 +47,15 @@ public class StationRepository {
             addStation(new Station(stationName));
         }
     }
+
+    public static void updateIsSection(Station station) {
+        station.setIsSection(checkIsSection(station));
+    }
+
+    private static boolean checkIsSection(Station station) {
+        for (Line line : LineRepository.lines()) {
+            if (line.getSections().contains(station)) return true;
+        }
+        return false;
+    }
 }
