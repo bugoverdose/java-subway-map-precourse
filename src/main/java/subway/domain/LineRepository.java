@@ -4,10 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
-import static subway.view.InputView.*;
+import static subway.constants.ExceptionMessages.NOT_EXISTING_LINE_NAME_EXCEPTION;
 
 public class LineRepository {
     private static final List<Line> lines = new ArrayList<>();
@@ -21,7 +19,7 @@ public class LineRepository {
             if (!line.getName().equals(name)) continue;
             return line;
         }
-        throw new IllegalArgumentException();
+        throw new IllegalArgumentException(NOT_EXISTING_LINE_NAME_EXCEPTION);
     }
 
     public static boolean checkExistsByName(String name) {
@@ -42,6 +40,7 @@ public class LineRepository {
 
     public static boolean deleteSectionByLineNameAndStationName(String lineName, String stationName) {
         Line line = findByName(lineName);
+        StationRepository.findByName(lineName);
         return line.getSections().removeIf(section -> Objects.equals(section.getName(),stationName));
     }
 
