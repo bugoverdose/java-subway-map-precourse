@@ -34,4 +34,7 @@ public class InstructionMessages {
     public static String REQUEST_NEW_LINE_START_STATION_INPUT = "## 등록할 노선의 상행 종점역 이름을 입력하세요.\n";
     public static String REQUEST_NEW_LINE_END_STATION_INPUT = "## 등록할 노선의 하행 종점역 이름을 입력하세요.\n";
     public static String REQUEST_DELETE_LINE_INPUT = "## 삭제할 노선 이름을 입력하세요.\n";
+    public static String REQUEST_TARGET_LINE_INPUT = "## 노선을 입력하세요.\n";
+    public static String REQUEST_STATION_LINE_INPUT = "## 역이름을 입력하세요.\n";
+    public static String REQUEST_SECTION_IDX_INPUT = "## 순서를 입력하세요.\n";
 }

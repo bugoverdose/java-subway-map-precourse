@@ -47,4 +47,19 @@ public class InputView {
         System.out.println(REQUEST_DELETE_LINE_INPUT);
         return requestUserInput();
     }
+
+    public static String requestTargetLineInput() {
+        System.out.println(REQUEST_TARGET_LINE_INPUT);
+        return requestUserInput();
+    }
+
+    public static String requestTargetStationInput() {
+        System.out.println(REQUEST_STATION_LINE_INPUT);
+        return requestUserInput();
+    }
+
+    public static String requestStationIdxInput() {
+        System.out.println(REQUEST_STATION_LINE_INPUT);
+        return requestUserInput();
+    }
 }

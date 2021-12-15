@@ -12,6 +12,14 @@ public class LineRepository {
         return Collections.unmodifiableList(lines);
     }
 
+    public static Line findByName(String name) {
+        for (Line line : lines) {
+            if (!line.getName().equals(name)) continue;
+            return line;
+        }
+        throw new IllegalArgumentException();
+    }
+
     public static void addLine(Line line) {
         lines.add(line);
     }

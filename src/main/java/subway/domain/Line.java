@@ -20,4 +20,9 @@ public class Line {
     public List<Station> getSections() {
         return this.sections;
     }
+
+    public void addSections(int idx, Station section) {
+        idx = idx - 1;
+        this.sections.add(idx, section);
+    }
 }
