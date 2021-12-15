@@ -22,4 +22,8 @@ public class OutputView {
             System.out.println(INFO + station.getName());
         }
     }
+
+    public static void printPostLineOutput() {
+        System.out.println(POST_LINE_SUCCESSFUL_OUTPUT);
+    }
 }
