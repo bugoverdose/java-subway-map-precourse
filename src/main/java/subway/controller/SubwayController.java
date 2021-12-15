@@ -4,6 +4,8 @@ import static subway.utils.MenuInputValidators.*;
 import static subway.constants.InstructionMessages.REQUEST_MAIN_ACTION;
 import static subway.view.InputView.*;
 
+import subway.domain.LineRepository;
+import subway.domain.StationRepository;
 import subway.service.LineService;
 import subway.service.SectionService;
 import subway.service.StationService;
@@ -19,6 +21,7 @@ public class SubwayController {
 
     public void run() {
         boolean isRunning = true;
+        initDatabase();
 
         while (isRunning) {
             System.out.println(REQUEST_MAIN_ACTION);
@@ -26,6 +29,11 @@ public class SubwayController {
         }
 
         scanner.close();
+    }
+
+    private void initDatabase() {
+        StationRepository.initDatabase();
+        LineRepository.initDatabase();
     }
 
     private boolean selectMainMenuAction() {

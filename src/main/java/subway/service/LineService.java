@@ -31,8 +31,8 @@ public class LineService {
     private boolean postLineSuccessful() {
         try {
             String name = requestNewLineInput();
-            Station startStation = new Station(requestNewLineStartStationInput());
-            Station endStation = new Station(requestNewLineEndStationInput());
+            Station startStation = StationRepository.findByName(requestNewLineStartStationInput());
+            Station endStation = StationRepository.findByName(requestNewLineEndStationInput());
             Line newLine = new Line(name, startStation, endStation);
             LineRepository.addLine(newLine);
             printPostLineOutput();
