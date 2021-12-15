@@ -23,6 +23,11 @@ public class InstructionMessages {
             "3. 노선 조회\n" +
             "B. 돌아가기";
 
+    public static String REQUEST_SECTION_MENU_ACTION = "## 구간 관리 화면\n" +
+            "1. 구간 등록\n" +
+            "2. 구간 삭제\n" +
+            "B. 돌아가기";
+
     public static String REQUEST_NEW_STATION_INPUT = "## 등록할 역 이름을 입력하세요.\n";
     public static String REQUEST_DELETE_STATION_INPUT = "## 삭제할 역 이름을 입력하세요.\n";
     public static String REQUEST_NEW_LINE_INPUT = "## 등록할 노선 이름을 입력하세요.\n";

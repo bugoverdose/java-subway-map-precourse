@@ -8,6 +8,7 @@ import subway.domain.Station;
 import subway.domain.StationRepository;
 
 public class StationService {
+
     public void run() {
         System.out.println(REQUEST_STATION_MENU_ACTION);
         boolean isSuccessful = false;
