@@ -1,5 +1,6 @@
 package subway.controller;
 
+import static subway.utils.MenuInputValidators.*;
 import static subway.constants.InstructionMessages.REQUEST_MAIN_ACTION;
 import static subway.view.InputView.*;
 
@@ -13,25 +14,48 @@ public class SubwayController {
     private final LineService lineService = new LineService();
     private final SectionService sectionService = new SectionService();
 
-    public SubwayController() {}
+    public SubwayController() {
+    }
 
     public void run() {
-        System.out.println(REQUEST_MAIN_ACTION);
+        boolean isRunning = true;
+
+        while (isRunning) {
+            System.out.println(REQUEST_MAIN_ACTION);
+            isRunning = selectMainMenuAction();
+        }
+
+        scanner.close();
+    }
+
+    private boolean selectMainMenuAction() {
         while (true) {
-            String userChoice = requestActionInput();
-            if (userChoice.equals("Q")) break;
-            if (userChoice.equals("1")) {
-                stationService.run();
-            }
-            if (userChoice.equals("2")) {
-                lineService.run();
-            }
-            if (userChoice.equals("3")) {
-                sectionService.run();
-            }
-            if (userChoice.equals("4")) {
-                lineService.readAllLines();
+            try {
+                String userChoice = requestActionInput();
+                validateMainMenuInput(userChoice);
+                return runMainMenuAction(userChoice);
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
             }
         }
+    }
+
+    private boolean runMainMenuAction(String userChoice) {
+        if (userChoice.equals("Q")) {
+            return false;
+        }
+        if (userChoice.equals("1")) {
+            stationService.run();
+        }
+        if (userChoice.equals("2")) {
+            lineService.run();
+        }
+        if (userChoice.equals("3")) {
+            sectionService.run();
+        }
+        if (userChoice.equals("4")) {
+            lineService.readAllLines();
+        }
+        return true;
     }
 }

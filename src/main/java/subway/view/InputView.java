@@ -6,11 +6,10 @@ import java.util.Scanner;
 
 public class InputView {
 
+    public static final Scanner scanner = new Scanner(System.in);
+
     private static String requestUserInput() {
-        final Scanner scanner = new Scanner(System.in);
-        String userChoice = scanner.next();
-        scanner.close();
-        return userChoice;
+        return scanner.next();
     }
 
     public static String requestActionInput() {
