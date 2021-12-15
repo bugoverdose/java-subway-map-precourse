@@ -15,18 +15,21 @@ public class StationService {
         boolean isSuccessful = false;
         while (!isSuccessful) {
             String userChoice = requestActionInput();
-
-            if (userChoice.equals("1")) {
-                isSuccessful = postStation();
-            }
-            if (userChoice.equals("2")) {
-                isSuccessful = deleteStation();
-            }
-            if (userChoice.equals("3")) {
-                isSuccessful = readStation();
-            }
-            if (userChoice.equals("B")) break;
+            isSuccessful = selectStationMenuAction(userChoice);
         }
+    }
+
+    private boolean selectStationMenuAction(String userChoice) {
+        if (userChoice.equals("1")) {
+            return postStation();
+        }
+        if (userChoice.equals("2")) {
+            return deleteStation();
+        }
+        if (userChoice.equals("3")) {
+            return readStation();
+        }
+        return userChoice.equals("B");
     }
 
     private boolean postStation() {

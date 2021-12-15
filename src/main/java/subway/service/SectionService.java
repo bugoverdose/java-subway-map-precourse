@@ -17,15 +17,18 @@ public class SectionService {
         boolean isSuccessful = false;
         while (!isSuccessful) {
             String userChoice = requestActionInput();
-
-            if (userChoice.equals("1")) {
-                isSuccessful = postSection();
-            }
-            if (userChoice.equals("2")) {
-                isSuccessful = deleteSection();
-            }
-            if (userChoice.equals("B")) break;
+            isSuccessful = selectSectionMenuAction(userChoice);
         }
+    }
+
+    private boolean selectSectionMenuAction(String userChoice) {
+        if (userChoice.equals("1")) {
+            return postSection();
+        }
+        if (userChoice.equals("2")) {
+            return deleteSection();
+        }
+        return userChoice.equals("B");
     }
 
     private boolean postSection() {

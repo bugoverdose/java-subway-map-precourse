@@ -16,17 +16,21 @@ public class LineService {
         boolean isSuccessful = false;
         while (!isSuccessful) {
             String userChoice = requestActionInput();
-            if (userChoice.equals("1")) {
-                isSuccessful = postLine();
-            }
-            if (userChoice.equals("2")) {
-                isSuccessful = deleteLine();
-            }
-            if (userChoice.equals("3")) {
-                isSuccessful = readLine();
-            }
-            if (userChoice.equals("B")) break;
+            isSuccessful = selectLineMenuAction(userChoice);
         }
+    }
+
+    private boolean selectLineMenuAction(String userChoice) {
+        if (userChoice.equals("1")) {
+            return postLine();
+        }
+        if (userChoice.equals("2")) {
+            return deleteLine();
+        }
+        if (userChoice.equals("3")) {
+            return readLine();
+        }
+        return userChoice.equals("B");
     }
 
     private boolean postLine() {
