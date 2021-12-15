@@ -1,5 +1,6 @@
 package subway.view;
 
+import subway.domain.Line;
 import subway.domain.Station;
 
 import java.util.List;
@@ -29,5 +30,12 @@ public class OutputView {
 
     public static void printDeleteLineOutput() {
         System.out.println(DELETE_LINE_SUCCESSFUL_OUTPUT);
+    }
+
+    public static void printReadLineOutput(List<Line> lineList) {
+        System.out.println(READ_LINE_LIST_FORMAT);
+        for (Line line : lineList) {
+            System.out.println(INFO + line.getName());
+        }
     }
 }

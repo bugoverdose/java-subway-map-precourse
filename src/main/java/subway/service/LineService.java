@@ -22,7 +22,7 @@ public class LineService {
                 isSuccessful = deleteLineSuccessful();
             }
             if (userChoice.equals("3")) {
-                // TODO
+                isSuccessful = readLineSuccessful();
             }
             if (userChoice.equals("B")) break;
         }
@@ -55,4 +55,8 @@ public class LineService {
         }
     }
 
+    private boolean readLineSuccessful() {
+        printReadLineOutput(LineRepository.lines());
+        return true;
+    }
 }
