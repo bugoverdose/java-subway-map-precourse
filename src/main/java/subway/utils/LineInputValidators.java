@@ -1,9 +1,9 @@
 package subway.utils;
 
 import static subway.constants.ExceptionMessages.*;
-import static subway.utils.StationInputValidators.*;
 
 import subway.domain.LineRepository;
+import subway.domain.StationRepository;
 
 public class LineInputValidators {
 
@@ -21,6 +21,12 @@ public class LineInputValidators {
     private static void validateLineNameLength(String lineName) {
         if (lineName.length() < 2) {
             throw new IllegalArgumentException(LINE_NAME_LENGTH_EXCEPTION);
+        }
+    }
+
+    public static void validateExistingLine (String lineName) {
+        if (!StationRepository.checkExistsByName(lineName)){
+            throw new IllegalArgumentException(NOT_EXISTING_LINE_NAME_EXCEPTION);
         }
     }
 }

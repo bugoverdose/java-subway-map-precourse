@@ -48,6 +48,7 @@ public class LineService {
     private boolean deleteLine() {
         try {
             String lineName = requestDeleteLineInput();
+            validateExistingLine(lineName);
             LineRepository.deleteLineByName(lineName);
             printDeleteLineOutput();
             return true;
