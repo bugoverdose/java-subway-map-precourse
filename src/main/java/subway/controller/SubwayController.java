@@ -30,7 +30,7 @@ public class SubwayController {
                 sectionService.run();
             }
             if (userChoice.equals("4")) {
-                //TODO
+                lineService.readAllLines();
             }
         }
     }

@@ -38,4 +38,16 @@ public class OutputView {
             System.out.println(INFO + line.getName());
         }
     }
+
+    public static void printReadAllLinesOutput(List<Line> lineList) {
+        System.out.println(READ_ALL_LINES_FORMAT);
+        for (Line line : lineList) {
+            System.out.println(INFO + line.getSections());
+            System.out.println(LINES);
+            for (Station section : line.getSections()) {
+                System.out.println(INFO + section.getName());
+            }
+            System.out.println(BLANK_LINE);
+        }
+    }
 }

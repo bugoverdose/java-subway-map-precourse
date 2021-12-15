@@ -5,15 +5,19 @@ import java.util.List;
 
 public class Line {
     private String name;
-    private List<Station> stations = new ArrayList<>();
+    private List<Station> sections = new ArrayList<>();
 
     public Line(String name, Station start, Station end) {
         this.name = name;
-        this.stations.add(start);
-        this.stations.add(end);
+        this.sections.add(start);
+        this.sections.add(end);
     }
 
     public String getName() {
         return name;
+    }
+
+    public List<Station> getSections() {
+        return this.sections;
     }
 }

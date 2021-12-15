@@ -59,4 +59,8 @@ public class LineService {
         printReadLineOutput(LineRepository.lines());
         return true;
     }
+
+    public void readAllLines() {
+        printReadAllLinesOutput(LineRepository.lines());
+    }
 }
