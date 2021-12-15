@@ -30,7 +30,7 @@ public class SectionService {
     private boolean postSection() {
         try {
             Line line = LineRepository.findByName(requestTargetLineInput());
-            Station targetStation = new Station(requestTargetStationInput());
+            Station targetStation = StationRepository.findByName(requestTargetStationInput());
             int idx = Integer.parseInt(requestStationIdxInput());
             line.addSection(idx, targetStation);
             targetStation.setIsSection(true);
