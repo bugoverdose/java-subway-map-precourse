@@ -23,8 +23,6 @@ public class SectionService {
             if (userChoice.equals("2")) {
                 isSuccessful = deleteSectionSuccessful();
             }
-            if (userChoice.equals("3")) {
-            }
             if (userChoice.equals("B")) break;
         }
     }
