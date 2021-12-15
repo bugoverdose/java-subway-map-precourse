@@ -1,6 +1,7 @@
 package subway.utils;
 
 import static subway.constants.ExceptionMessages.*;
+import static subway.utils.StationInputValidators.*;
 
 import subway.domain.LineRepository;
 

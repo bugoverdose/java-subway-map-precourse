@@ -7,6 +7,8 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import static subway.constants.ExceptionMessages.NOT_EXISTING_STATION_NAME_EXCEPTION;
+
 public class StationRepository {
     private static final List<Station> stations = new ArrayList<>();
 
@@ -19,7 +21,7 @@ public class StationRepository {
             if (!station.getName().equals(name)) continue;
             return station;
         }
-        throw new IllegalArgumentException();
+        throw new IllegalArgumentException(NOT_EXISTING_STATION_NAME_EXCEPTION);
     }
 
     public static boolean checkExistsByName(String name) {
