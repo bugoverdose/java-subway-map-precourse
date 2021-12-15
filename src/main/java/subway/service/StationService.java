@@ -32,7 +32,7 @@ public class StationService {
     private boolean postStation() {
         try {
             String newStationName = requestNewStationInput();
-            validateUniqueStationName(newStationName);
+            validatePostStation(newStationName);
             Station newStation = new Station(newStationName);
             StationRepository.addStation(newStation);
             printPostStationOutput();

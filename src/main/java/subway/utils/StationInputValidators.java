@@ -5,9 +5,20 @@ import static subway.domain.StationRepository.*;
 
 public class StationInputValidators {
 
-    public static void validateUniqueStationName (String stationName) {
+    public static void validatePostStation (String stationName) {
+        validateUniqueStationName(stationName);
+        validateStationNameLength(stationName);
+    }
+
+    private static void validateUniqueStationName (String stationName) {
         if (checkExistsByName(stationName)){
             throw new IllegalArgumentException(DUPLICATE_STATION_NAME_EXCEPTION);
+        }
+    }
+
+    private static void validateStationNameLength (String stationName) {
+        if (stationName.length() < 2){
+            throw new IllegalArgumentException(STATION_NAME_LENGTH_EXCEPTION);
         }
     }
 }
