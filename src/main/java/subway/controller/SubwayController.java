@@ -3,11 +3,13 @@ package subway.controller;
 import static subway.constants.InstructionMessages.REQUEST_MAIN_ACTION;
 import static subway.view.InputView.*;
 
+import subway.service.LineService;
 import subway.service.StationService;
 
 public class SubwayController {
 
     private final StationService stationService = new StationService();
+    private final LineService lineService = new LineService();
 
     public SubwayController() {}
 
@@ -20,7 +22,7 @@ public class SubwayController {
                 stationService.run();
             }
             if (userChoice.equals("2")) {
-                //TODO
+                lineService.run();
             }
             if (userChoice.equals("3")) {
                 //TODO

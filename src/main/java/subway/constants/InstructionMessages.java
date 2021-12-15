@@ -17,6 +17,12 @@ public class InstructionMessages {
             "3. 역 조회\n" +
             "B. 돌아가기";
 
+    public static String REQUEST_LINE_MENU_ACTION = "## 노선 관리 화면\n" +
+            "1. 노선 등록\n" +
+            "2. 노선 삭제\n" +
+            "3. 노선 조회\n" +
+            "B. 돌아가기";
+
     public static String REQUEST_NEW_STATION_INPUT = "## 등록할 역 이름을 입력하세요.\n";
     public static String REQUEST_DELETE_STATION_INPUT = "## 삭제할 역 이름을 입력하세요.\n";
 }
