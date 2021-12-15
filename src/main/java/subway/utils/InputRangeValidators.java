@@ -33,7 +33,7 @@ public class InputRangeValidators {
     }
 
     private static void validateLineRange(int idx, Line line) {
-        if (idx < 1 || idx > line.getSectionMaxIdx() + 1) {
+        if (idx < 1 || idx > line.getSectionSize() + 1) {
             throw new IllegalArgumentException(INVALID_RANGE_EXCEPTION);
         }
     }

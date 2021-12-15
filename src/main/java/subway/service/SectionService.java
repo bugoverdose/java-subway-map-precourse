@@ -2,6 +2,7 @@ package subway.service;
 
 import static subway.constants.InstructionMessages.*;
 import static subway.utils.InputRangeValidators.validateAndParseToInt;
+import static subway.utils.SectionInputValidators.validateDeleteSection;
 import static subway.view.InputView.*;
 import static subway.view.OutputView.*;
 
@@ -50,6 +51,8 @@ public class SectionService {
         try {
             String lineName = requestDeleteSectionLineInput();
             String stationName = requestDeleteSectionStationInput();
+            validateDeleteSection(lineName, stationName);
+
             LineRepository.deleteSectionByLineNameAndStationName(lineName, stationName);
             StationRepository.updateIsSection(StationRepository.findByName(stationName));
             printDeleteSectionOutput();

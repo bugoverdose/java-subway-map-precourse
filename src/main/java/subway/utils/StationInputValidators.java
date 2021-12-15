@@ -29,7 +29,7 @@ public class StationInputValidators {
         validateStationNotSection(stationName);
     }
 
-    private static void validateExistingStation (String stationName) {
+    public static void validateExistingStation (String stationName) {
         if (!StationRepository.checkExistsByName(stationName)){
             throw new IllegalArgumentException(NOT_EXISTING_STATION_NAME_EXCEPTION);
         }

@@ -40,7 +40,6 @@ public class LineRepository {
 
     public static boolean deleteSectionByLineNameAndStationName(String lineName, String stationName) {
         Line line = findByName(lineName);
-        StationRepository.findByName(lineName);
         return line.getSections().removeIf(section -> Objects.equals(section.getName(),stationName));
     }
 

@@ -21,7 +21,7 @@ public class Line {
         return this.sections;
     }
 
-    public int getSectionMaxIdx() {
+    public int getSectionSize() {
         return this.sections.size();
     }
 
