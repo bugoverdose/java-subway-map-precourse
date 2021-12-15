@@ -1,13 +1,14 @@
 package subway.service;
 
+import static subway.constants.InstructionMessages.*;
+import static subway.view.InputView.*;
+import static subway.view.OutputView.*;
+import static subway.utils.LineInputValidators.*;
+
 import subway.domain.Line;
 import subway.domain.LineRepository;
 import subway.domain.Station;
 import subway.domain.StationRepository;
-
-import static subway.constants.InstructionMessages.*;
-import static subway.view.InputView.*;
-import static subway.view.OutputView.*;
 
 public class LineService {
     public void run() {
@@ -30,10 +31,11 @@ public class LineService {
 
     private boolean postLine() {
         try {
-            String name = requestNewLineInput();
+            String lineName = requestNewLineInput();
+            validatePostLine(lineName);
             Station startStation = StationRepository.findByName(requestNewLineStartStationInput());
             Station endStation = StationRepository.findByName(requestNewLineEndStationInput());
-            Line newLine = new Line(name, startStation, endStation);
+            Line newLine = new Line(lineName, startStation, endStation);
             LineRepository.addLine(newLine);
             printPostLineOutput();
             return true;
