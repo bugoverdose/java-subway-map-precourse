@@ -18,10 +18,14 @@ public class OutputView {
     }
 
     public static void printReadStationOutput(List<Station> stationList) {
-        System.out.println(READ_STATION_LIST_FORMAT);
+        StringBuilder sb = new StringBuilder();
+
+        sb.append(READ_STATION_LIST_FORMAT);
         for (Station station : stationList) {
-            System.out.println(INFO + station.getName());
+            sb.append(INFO).append(station.getName());
         }
+
+        System.out.println(sb);
     }
 
     public static void printPostLineOutput() {
@@ -33,10 +37,14 @@ public class OutputView {
     }
 
     public static void printReadLineOutput(List<Line> lineList) {
-        System.out.println(READ_LINE_LIST_FORMAT);
+        StringBuilder sb = new StringBuilder();
+
+        sb.append(READ_LINE_LIST_FORMAT);
         for (Line line : lineList) {
-            System.out.println(INFO + line.getName());
+            sb.append(INFO).append(line.getName());
         }
+
+        System.out.println(sb);
     }
 
     public static void printPostSectionOutput() {
@@ -48,14 +56,17 @@ public class OutputView {
     }
 
     public static void printReadAllLinesOutput(List<Line> lineList) {
+        StringBuilder sb = new StringBuilder();
+
         System.out.println(READ_ALL_LINES_FORMAT);
         for (Line line : lineList) {
-            System.out.println(INFO + line.getSections());
-            System.out.println(LINES);
+            sb.append(INFO).append(line.getSections()).append(LINES);
             for (Station section : line.getSections()) {
-                System.out.println(INFO + section.getName());
+                sb.append(INFO).append(section.getName());
             }
-            System.out.println(BLANK_LINE);
+            sb.append(BLANK_LINE);
         }
+
+        System.out.println(sb);
     }
 }
