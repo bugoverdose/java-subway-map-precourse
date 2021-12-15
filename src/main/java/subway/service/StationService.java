@@ -16,19 +16,19 @@ public class StationService {
             String userChoice = requestActionInput();
 
             if (userChoice.equals("1")) {
-                isSuccessful = postStationSuccessful();
+                isSuccessful = postStation();
             }
             if (userChoice.equals("2")) {
-                isSuccessful = deleteStationSuccessful();
+                isSuccessful = deleteStation();
             }
             if (userChoice.equals("3")) {
-                isSuccessful = readStationSuccessful();
+                isSuccessful = readStation();
             }
             if (userChoice.equals("B")) break;
         }
     }
 
-    private boolean postStationSuccessful() {
+    private boolean postStation() {
         try {
             Station newStation = new Station(requestNewStationInput());
             StationRepository.addStation(newStation);
@@ -40,7 +40,7 @@ public class StationService {
         }
     }
 
-    private boolean deleteStationSuccessful() {
+    private boolean deleteStation() {
         try {
             String stationName = requestDeleteStationInput();
             StationRepository.deleteStation(stationName);
@@ -52,7 +52,7 @@ public class StationService {
         }
     }
 
-    private boolean readStationSuccessful() {
+    private boolean readStation() {
         printReadStationOutput(StationRepository.stations());
         return true;
     }

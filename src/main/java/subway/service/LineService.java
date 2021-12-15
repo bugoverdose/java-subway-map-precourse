@@ -16,19 +16,19 @@ public class LineService {
         while (!isSuccessful) {
             String userChoice = requestActionInput();
             if (userChoice.equals("1")) {
-                isSuccessful = postLineSuccessful();
+                isSuccessful = postLine();
             }
             if (userChoice.equals("2")) {
-                isSuccessful = deleteLineSuccessful();
+                isSuccessful = deleteLine();
             }
             if (userChoice.equals("3")) {
-                isSuccessful = readLineSuccessful();
+                isSuccessful = readLine();
             }
             if (userChoice.equals("B")) break;
         }
     }
 
-    private boolean postLineSuccessful() {
+    private boolean postLine() {
         try {
             String name = requestNewLineInput();
             Station startStation = StationRepository.findByName(requestNewLineStartStationInput());
@@ -43,7 +43,7 @@ public class LineService {
         }
     }
 
-    private boolean deleteLineSuccessful() {
+    private boolean deleteLine() {
         try {
             String lineName = requestDeleteLineInput();
             LineRepository.deleteLineByName(lineName);
@@ -55,7 +55,7 @@ public class LineService {
         }
     }
 
-    private boolean readLineSuccessful() {
+    private boolean readLine() {
         printReadLineOutput(LineRepository.lines());
         return true;
     }

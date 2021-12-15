@@ -18,16 +18,16 @@ public class SectionService {
             String userChoice = requestActionInput();
 
             if (userChoice.equals("1")) {
-                isSuccessful = postSectionSuccessful();
+                isSuccessful = postSection();
             }
             if (userChoice.equals("2")) {
-                isSuccessful = deleteSectionSuccessful();
+                isSuccessful = deleteSection();
             }
             if (userChoice.equals("B")) break;
         }
     }
 
-    private boolean postSectionSuccessful() {
+    private boolean postSection() {
         try {
             Line line = LineRepository.findByName(requestTargetLineInput());
             Station targetStation = new Station(requestTargetStationInput());
@@ -41,7 +41,7 @@ public class SectionService {
         }
     }
 
-    private boolean deleteSectionSuccessful() {
+    private boolean deleteSection() {
         try {
             String lineName = requestDeleteSectionLineInput();
             String stationName = requestDeleteSectionStationInput();
