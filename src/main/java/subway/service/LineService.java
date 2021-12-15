@@ -1,6 +1,7 @@
 package subway.service;
 
 import static subway.constants.InstructionMessages.*;
+import static subway.utils.InputRangeValidators.validateLineMenuInput;
 import static subway.view.InputView.*;
 import static subway.view.OutputView.*;
 import static subway.utils.LineInputValidators.*;
@@ -21,6 +22,16 @@ public class LineService {
     }
 
     private boolean selectLineMenuAction(String userChoice) {
+        try {
+            validateLineMenuInput(userChoice);
+            return runLineMenuAction(userChoice);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+    }
+
+    private boolean runLineMenuAction(String userChoice) {
         if (userChoice.equals("1")) {
             return postLine();
         }

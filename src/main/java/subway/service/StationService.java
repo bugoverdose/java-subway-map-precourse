@@ -1,6 +1,7 @@
 package subway.service;
 
 import static subway.constants.InstructionMessages.*;
+import static subway.utils.InputRangeValidators.validateStationMenuInput;
 import static subway.utils.StationInputValidators.*;
 import static subway.view.InputView.*;
 import static subway.view.OutputView.*;
@@ -20,6 +21,16 @@ public class StationService {
     }
 
     private boolean selectStationMenuAction(String userChoice) {
+        try {
+            validateStationMenuInput(userChoice);
+            return runStationMenuAction(userChoice);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+    }
+
+    private boolean runStationMenuAction(String userChoice) {
         if (userChoice.equals("1")) {
             return postStation();
         }

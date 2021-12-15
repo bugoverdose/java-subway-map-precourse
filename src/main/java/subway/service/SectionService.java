@@ -1,7 +1,7 @@
 package subway.service;
 
 import static subway.constants.InstructionMessages.*;
-import static subway.utils.InputRangeValidators.validateAndParseToInt;
+import static subway.utils.InputRangeValidators.*;
 import static subway.utils.SectionInputValidators.validateDeleteSection;
 import static subway.view.InputView.*;
 import static subway.view.OutputView.*;
@@ -23,6 +23,16 @@ public class SectionService {
     }
 
     private boolean selectSectionMenuAction(String userChoice) {
+        try {
+            validateSectionMenuInput(userChoice);
+            return runSectionMenuAction(userChoice);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+    }
+
+    private boolean runSectionMenuAction(String userChoice) {
         if (userChoice.equals("1")) {
             return postSection();
         }

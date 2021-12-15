@@ -18,6 +18,30 @@ public class InputRangeValidators {
         }
     }
 
+    public static void validateStationMenuInput(String input) {
+        List<String> validateInputs = Stream.of("1", "2", "3", "B")
+                .collect(Collectors.toList());
+        if (!validateInputs.contains(input)) {
+            throw new IllegalArgumentException(INVALID_CHOICE_EXCEPTION);
+        }
+    }
+
+    public static void validateLineMenuInput(String input) {
+        List<String> validateInputs = Stream.of("1", "2", "3", "B")
+                .collect(Collectors.toList());
+        if (!validateInputs.contains(input)) {
+            throw new IllegalArgumentException(INVALID_CHOICE_EXCEPTION);
+        }
+    }
+
+    public static void validateSectionMenuInput(String input) {
+        List<String> validateInputs = Stream.of("1", "2", "B")
+                .collect(Collectors.toList());
+        if (!validateInputs.contains(input)) {
+            throw new IllegalArgumentException(INVALID_CHOICE_EXCEPTION);
+        }
+    }
+
     public static int validateAndParseToInt(String input, Line line) {
         int idx = validateAndParseToInt(input);
         validateLineRange(idx, line);
