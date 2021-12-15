@@ -59,7 +59,17 @@ public class InputView {
     }
 
     public static String requestStationIdxInput() {
-        System.out.println(REQUEST_STATION_LINE_INPUT);
+        System.out.println(REQUEST_SECTION_IDX_INPUT);
+        return requestUserInput();
+    }
+
+    public static String requestDeleteSectionLineInput() {
+        System.out.println(REQUEST_DELETE_SECTION_LINE_INPUT);
+        return requestUserInput();
+    }
+
+    public static String requestDeleteSectionStationInput() {
+        System.out.println(REQUEST_DELETE_SECTION_STATION_INPUT);
         return requestUserInput();
     }
 }

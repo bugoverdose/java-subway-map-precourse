@@ -43,6 +43,10 @@ public class OutputView {
         System.out.println(POST_SECTION_SUCCESSFUL_OUTPUT);
     }
 
+    public static void printDeleteSectionOutput() {
+        System.out.println(DELETE_SECTION_SUCCESSFUL_OUTPUT);
+    }
+
     public static void printReadAllLinesOutput(List<Line> lineList) {
         System.out.println(READ_ALL_LINES_FORMAT);
         for (Line line : lineList) {

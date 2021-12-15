@@ -27,4 +27,9 @@ public class LineRepository {
     public static boolean deleteLineByName(String name) {
         return lines.removeIf(line -> Objects.equals(line.getName(), name));
     }
+
+    public static boolean deleteSectionByLineNameAndStationName(String lineName, String stationName) {
+        Line line = findByName(lineName);
+        return line.getSections().removeIf(section -> Objects.equals(section.getName(),stationName));
+    }
 }

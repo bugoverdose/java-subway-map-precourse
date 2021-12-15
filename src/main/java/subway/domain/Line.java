@@ -21,7 +21,7 @@ public class Line {
         return this.sections;
     }
 
-    public void addSections(int idx, Station section) {
+    public void addSection(int idx, Station section) {
         idx = idx - 1;
         this.sections.add(idx, section);
     }
