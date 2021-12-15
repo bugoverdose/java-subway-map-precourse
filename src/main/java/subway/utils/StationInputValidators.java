@@ -1,7 +1,9 @@
 package subway.utils;
 
+import subway.domain.Station;
+import subway.domain.StationRepository;
+
 import static subway.constants.ExceptionMessages.*;
-import static subway.domain.StationRepository.*;
 
 public class StationInputValidators {
 
@@ -11,7 +13,7 @@ public class StationInputValidators {
     }
 
     private static void validateUniqueStationName (String stationName) {
-        if (checkExistsByName(stationName)){
+        if (StationRepository.checkExistsByName(stationName)){
             throw new IllegalArgumentException(DUPLICATE_STATION_NAME_EXCEPTION);
         }
     }
@@ -24,11 +26,19 @@ public class StationInputValidators {
 
     public static void validateDeleteStation (String stationName) {
         validateExistingStation(stationName);
+        validateStationNotSection(stationName);
     }
 
     private static void validateExistingStation (String stationName) {
-        if (!checkExistsByName(stationName)){
+        if (!StationRepository.checkExistsByName(stationName)){
             throw new IllegalArgumentException(NOT_EXISTING_STATION_NAME_EXCEPTION);
+        }
+    }
+
+    private static void validateStationNotSection (String stationName) {
+        Station station = StationRepository.findByName(stationName);
+        if (station.getIsSection()){
+            throw new IllegalArgumentException(STATION_IS_SECTION_EXCEPTION);
         }
     }
 }
