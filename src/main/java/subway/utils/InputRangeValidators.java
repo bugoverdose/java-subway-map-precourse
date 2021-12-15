@@ -2,6 +2,7 @@ package subway.utils;
 
 import subway.domain.Line;
 
+import static subway.constants.Constants.*;
 import static subway.constants.ExceptionMessages.*;
 
 import java.util.List;
@@ -11,7 +12,7 @@ import java.util.stream.Stream;
 public class InputRangeValidators {
 
     public static void validateMainMenuInput(String input) {
-        List<String> validateInputs = Stream.of("1", "2", "3", "4", "Q")
+        List<String> validateInputs = Stream.of(ONE, TWO, THREE, FOUR, EXIT_Q)
                 .collect(Collectors.toList());
         if (!validateInputs.contains(input)) {
             throw new IllegalArgumentException(INVALID_CHOICE_EXCEPTION);
@@ -19,7 +20,7 @@ public class InputRangeValidators {
     }
 
     public static void validateStationMenuInput(String input) {
-        List<String> validateInputs = Stream.of("1", "2", "3", "B")
+        List<String> validateInputs = Stream.of(ONE, TWO, THREE, EXIT_B)
                 .collect(Collectors.toList());
         if (!validateInputs.contains(input)) {
             throw new IllegalArgumentException(INVALID_CHOICE_EXCEPTION);
@@ -27,7 +28,7 @@ public class InputRangeValidators {
     }
 
     public static void validateLineMenuInput(String input) {
-        List<String> validateInputs = Stream.of("1", "2", "3", "B")
+        List<String> validateInputs = Stream.of(ONE, TWO, THREE, EXIT_B)
                 .collect(Collectors.toList());
         if (!validateInputs.contains(input)) {
             throw new IllegalArgumentException(INVALID_CHOICE_EXCEPTION);
@@ -35,7 +36,7 @@ public class InputRangeValidators {
     }
 
     public static void validateSectionMenuInput(String input) {
-        List<String> validateInputs = Stream.of("1", "2", "B")
+        List<String> validateInputs = Stream.of(ONE, TWO, EXIT_B)
                 .collect(Collectors.toList());
         if (!validateInputs.contains(input)) {
             throw new IllegalArgumentException(INVALID_CHOICE_EXCEPTION);
@@ -57,7 +58,7 @@ public class InputRangeValidators {
     }
 
     private static void validateLineRange(int idx, Line line) {
-        if (idx < 1 || idx > line.getSectionSize() + 1) {
+        if (idx < SECTION_MIN_IDX || idx > line.getSectionSize() + 1) {
             throw new IllegalArgumentException(INVALID_RANGE_EXCEPTION);
         }
     }

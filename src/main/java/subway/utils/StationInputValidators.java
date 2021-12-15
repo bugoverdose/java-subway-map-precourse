@@ -3,6 +3,7 @@ package subway.utils;
 import subway.domain.Station;
 import subway.domain.StationRepository;
 
+import static subway.constants.Constants.NAME_MIN_LENGTH;
 import static subway.constants.ExceptionMessages.*;
 
 public class StationInputValidators {
@@ -19,7 +20,7 @@ public class StationInputValidators {
     }
 
     private static void validateStationNameLength (String stationName) {
-        if (stationName.length() < 2){
+        if (stationName.length() < NAME_MIN_LENGTH){
             throw new IllegalArgumentException(STATION_NAME_LENGTH_EXCEPTION);
         }
     }

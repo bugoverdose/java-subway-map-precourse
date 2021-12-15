@@ -1,5 +1,6 @@
 package subway.utils;
 
+import static subway.constants.Constants.SECTION_MIN_LENGTH;
 import static subway.constants.ExceptionMessages.NOT_A_SECTION_IN_THE_LINE_EXCEPTION;
 import static subway.constants.ExceptionMessages.SECTION_LENGTH_EXCEPTION;
 import static subway.utils.LineInputValidators.validateExistingLine;
@@ -31,7 +32,7 @@ public class SectionInputValidators {
     }
 
     private static void validateSectionNumberOfLine(Line line) {
-        if (line.getSectionSize() <= 2) {
+        if (line.getSectionSize() <= SECTION_MIN_LENGTH) {
             throw new IllegalArgumentException(SECTION_LENGTH_EXCEPTION);
         }
     }

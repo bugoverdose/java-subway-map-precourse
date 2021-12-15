@@ -1,5 +1,6 @@
 package subway.service;
 
+import static subway.constants.Constants.*;
 import static subway.constants.InstructionMessages.*;
 import static subway.utils.InputRangeValidators.*;
 import static subway.utils.SectionInputValidators.validateDeleteSection;
@@ -33,13 +34,13 @@ public class SectionService {
     }
 
     private boolean runSectionMenuAction(String userChoice) {
-        if (userChoice.equals("1")) {
+        if (userChoice.equals(ONE)) {
             return postSection();
         }
-        if (userChoice.equals("2")) {
+        if (userChoice.equals(TWO)) {
             return deleteSection();
         }
-        return userChoice.equals("B");
+        return userChoice.equals(EXIT_B);
     }
 
     private boolean postSection() {

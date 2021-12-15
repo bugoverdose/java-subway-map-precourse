@@ -1,5 +1,6 @@
 package subway.service;
 
+import static subway.constants.Constants.*;
 import static subway.constants.InstructionMessages.*;
 import static subway.utils.InputRangeValidators.validateStationMenuInput;
 import static subway.utils.StationInputValidators.*;
@@ -31,16 +32,16 @@ public class StationService {
     }
 
     private boolean runStationMenuAction(String userChoice) {
-        if (userChoice.equals("1")) {
+        if (userChoice.equals(ONE)) {
             return postStation();
         }
-        if (userChoice.equals("2")) {
+        if (userChoice.equals(TWO)) {
             return deleteStation();
         }
-        if (userChoice.equals("3")) {
+        if (userChoice.equals(THREE)) {
             return readStation();
         }
-        return userChoice.equals("B");
+        return userChoice.equals(EXIT_B);
     }
 
     private boolean postStation() {

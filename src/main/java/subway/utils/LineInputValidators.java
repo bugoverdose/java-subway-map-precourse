@@ -1,5 +1,6 @@
 package subway.utils;
 
+import static subway.constants.Constants.NAME_MIN_LENGTH;
 import static subway.constants.ExceptionMessages.*;
 
 import subway.domain.LineRepository;
@@ -19,7 +20,7 @@ public class LineInputValidators {
     }
 
     private static void validateLineNameLength(String lineName) {
-        if (lineName.length() < 2) {
+        if (lineName.length() < NAME_MIN_LENGTH) {
             throw new IllegalArgumentException(LINE_NAME_LENGTH_EXCEPTION);
         }
     }

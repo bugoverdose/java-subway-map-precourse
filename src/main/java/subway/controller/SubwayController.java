@@ -1,5 +1,6 @@
 package subway.controller;
 
+import static subway.constants.Constants.*;
 import static subway.utils.InputRangeValidators.*;
 import static subway.constants.InstructionMessages.REQUEST_MAIN_ACTION;
 import static subway.view.InputView.*;
@@ -49,19 +50,19 @@ public class SubwayController {
     }
 
     private boolean runMainMenuAction(String userChoice) {
-        if (userChoice.equals("Q")) {
+        if (userChoice.equals(EXIT_Q)) {
             return false;
         }
-        if (userChoice.equals("1")) {
+        if (userChoice.equals(ONE)) {
             stationService.run();
         }
-        if (userChoice.equals("2")) {
+        if (userChoice.equals(TWO)) {
             lineService.run();
         }
-        if (userChoice.equals("3")) {
+        if (userChoice.equals(THREE)) {
             sectionService.run();
         }
-        if (userChoice.equals("4")) {
+        if (userChoice.equals(FOUR)) {
             lineService.readAllLines();
         }
         return true;
