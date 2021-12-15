@@ -42,4 +42,9 @@ public class InputView {
         System.out.println(REQUEST_NEW_LINE_END_STATION_INPUT);
         return requestUserInput();
     }
+
+    public static String requestDeleteLineInput() {
+        System.out.println(REQUEST_DELETE_STATION_INPUT);
+        return requestUserInput();
+    }
 }

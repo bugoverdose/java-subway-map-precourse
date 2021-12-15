@@ -26,4 +26,8 @@ public class OutputView {
     public static void printPostLineOutput() {
         System.out.println(POST_LINE_SUCCESSFUL_OUTPUT);
     }
+
+    public static void printDeleteLineOutput() {
+        System.out.println(DELETE_LINE_SUCCESSFUL_OUTPUT);
+    }
 }

@@ -19,7 +19,7 @@ public class LineService {
                 isSuccessful = postLineSuccessful();
             }
             if (userChoice.equals("2")) {
-                // TODO
+                isSuccessful = deleteLineSuccessful();
             }
             if (userChoice.equals("3")) {
                 // TODO
@@ -42,4 +42,17 @@ public class LineService {
             return false;
         }
     }
+
+    private boolean deleteLineSuccessful() {
+        try {
+            String lineName = requestDeleteLineInput();
+            LineRepository.deleteLineByName(lineName);
+            printDeleteLineOutput();
+            return true;
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+    }
+
 }
