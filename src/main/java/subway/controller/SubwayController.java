@@ -1,6 +1,6 @@
 package subway.controller;
 
-import static subway.utils.MenuInputValidators.*;
+import static subway.utils.InputRangeValidators.*;
 import static subway.constants.InstructionMessages.REQUEST_MAIN_ACTION;
 import static subway.view.InputView.*;
 

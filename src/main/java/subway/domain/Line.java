@@ -21,6 +21,10 @@ public class Line {
         return this.sections;
     }
 
+    public int getSectionMaxIdx() {
+        return this.sections.size();
+    }
+
     public void addSection(int idx, Station section) {
         idx = idx - 1;
         this.sections.add(idx, section);

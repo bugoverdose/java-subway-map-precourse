@@ -6,6 +6,7 @@ import subway.domain.Station;
 import subway.domain.StationRepository;
 
 import static subway.constants.InstructionMessages.*;
+import static subway.utils.InputRangeValidators.validateAndParseToInt;
 import static subway.view.InputView.*;
 import static subway.view.OutputView.*;
 
@@ -31,7 +32,7 @@ public class SectionService {
         try {
             Line line = LineRepository.findByName(requestTargetLineInput());
             Station targetStation = StationRepository.findByName(requestTargetStationInput());
-            int idx = Integer.parseInt(requestStationIdxInput());
+            int idx = validateAndParseToInt(requestStationIdxInput(), line);
             line.addSection(idx, targetStation);
             targetStation.setIsSection(true);
             printPostSectionOutput();
